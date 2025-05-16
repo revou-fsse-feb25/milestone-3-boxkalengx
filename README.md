@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🛒 Revo Shop Catalogue
+A simple product catalogue built with Next.js and Tailwind CSS that fetches product data from the Fake Store API.
 
-## Getting Started
+🚀 Features
+Fetches products from Fake Store API.
 
-First, run the development server:
+Displays products with title, description, price, and image.
 
-```bash
+Reusable ProductCard component.
+
+Styled using Tailwind CSS.
+
+📦 Installation
+Clone the repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/revou-fsse-feb25/milestone-3-boxkalengx.git
+cd milestone-3-boxkalengx
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+
+# or
+
+yarn install
+Run the development server:
+
+bash
+Copy
+Edit
 npm run dev
+
 # or
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view it in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🧑‍💻 Project Structure
+bash
+Copy
+Edit
+/components
+└── ProductCard.jsx
+/pages
+└── index.jsx (Main Home component)
+Home.jsx
+Fetches product data using useEffect.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Stores products in state using useState.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Renders a list of ProductCard components.
 
-## Learn More
+ProductCard.jsx
+Receives product props.
 
-To learn more about Next.js, take a look at the following resources:
+Displays image, title, description, and price.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Includes a "View Product" link (dynamic routing ready).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🛠️ Tech Stack
+Next.js 14+
 
-## Deploy on Vercel
+React 18
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fake Store API
+
+🌐 API Used
+https://fakestoreapi.com/products
+
+📦 Deployment
+You can easily deploy this project to Vercel with GitHub integration.
+
+📄 License
+This project is for learning & demo purposes.
