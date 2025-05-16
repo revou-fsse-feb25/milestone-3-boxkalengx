@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Revoshop</h1>
+      <h1 className="text-3xl font-bold mb-4 text-gray-800">Revo Shop Catalogue</h1>
       <div>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
