@@ -28,7 +28,7 @@ export default function Dashboard() {
           <p>Logged in as: {session.user.email}</p>
           <p>Access Token: {session.accessToken}</p>
           <div>
-            <button onClick={handleLogout} className="border bg-red-500 text-white">
+            <button onClick={handleLogout} className="border bg-red-500 text-black-800">
               Logout
             </button>
           </div>
