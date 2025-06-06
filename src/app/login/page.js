@@ -1,43 +1,44 @@
-'use client'
+"use client";
+import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const router = useRouter();
 
-    import React, { useState } from "react";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (res.error) {
+      setError("Invalid email or password");
+    } else {
+      router.push("/");
+    }
+  };
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-const handleSubmit = async () => {
-    const response = await fetch("
-        ",
-        {
-            method:"POST",
-headers: {"Content-Type": "application/json"}
-body: JSON.stringify({email, password}),        
-})
-if(!response.ok){
-throw new Error("Invalid Credentials");
-}
-};
+  return (
+    <div>
+      <form onSubmit={handleSubmit} className="flex flex-col m-2 gap-2">
+        <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="border " required />
 
-const data = await response.json();
-localStorage.setItem("access_token", data.access_token);
-}
-
-
-
-    return (
-        <div>
-            <form  onSubmit={handleSubmit} className="flex flex-col m-2 gap-2">
-                <input type="email"
-                 placeholder="Enter your email"
-                 className="border "/>
-                <input
-                 type="password" 
-                 placeholder="Enter your password"
-                  className="border "/>
-                <button type="submit" className="border bg-blue-500 
-                text-white">Submit</button>
-
-            </form>
-        </div>
-    )
+        <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="border " required />
+        <button
+          type="submit"
+          className="border bg-amber-500
+                text-white"
+        >
+          Submit
+        </button>
+        {error && <p className="text-red-500">{error}</p>}
+      </form>
+    </div>
+  );
 }
