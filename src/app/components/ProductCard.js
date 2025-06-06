@@ -8,7 +8,7 @@ export default function ProductCard({ product }) {
       <h3>{product.title}</h3>
       <p> {product.description}</p>
       <p>Price: ${product.price}</p>
-      <Link className="text-color-green-500" href={`/product/${product.id}`}>
+      <Link href={`/product/${product.id}`}>
         View Product
       </Link>
     </div>
