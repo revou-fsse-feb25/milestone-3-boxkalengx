@@ -2,43 +2,28 @@
 import React, { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import LoadingSpinner from "./components/LoadingSpinner";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-    setLoading(true);
 
     const res = await signIn("credentials", {
       email,
       password,
       redirect: false,
     });
-
-    setLoading(false);
-
     if (res.error) {
       setError("Invalid email or password");
     } else {
       router.push("/");
     }
   };
-
-  if (!mounted || status === "loading") {
-    return <LoadingSpinner />;
-  }
 
   return (
     <div>

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import LoadingSpinner from "./components/LoadingSpinner";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -45,6 +46,7 @@ export default function Home() {
 
   return (
     <main>
+      <Navbar />
       <h1 className="text-3xl font-bold m-4 text-white-800">Revo Shop Catalogue</h1>
       <input
         type="text"
